@@ -11,7 +11,8 @@ add script tag to your website:
 ```html
 <script type="text/javascript" src="jSniff.js"></script>
 ```
--- hit <Enter>
+<br />
+<br />
 
 #####sniff the function using:
 #####jSniff.sniffify
