@@ -1,6 +1,6 @@
-﻿(function (window, undefined) {
+﻿(function (window) {
 
-    "use strict";
+    'use strict';
 
     var jSniff = {};
 
@@ -18,11 +18,6 @@
                 invocations: []
             };
         }
-		
-		if(customFunc){
-			var uniqueId = new Date().getTime();
-			window[uniqueId] = customFunc;
-		}
 
         jSniff.spies[sniffName].toExecute = obj[funcName];
 
@@ -32,29 +27,34 @@
             return null;
         }
 
-        var funcParams = match[1].split(",");
-        var paramsAuditingFunc = "";
+        var funcParams = match[1].split(',');
+        var paramsAuditingFunc = '';
         var evalParams = new Array();
 
         for (var i = 0; funcParams.length > i; i++) {
-            if (funcParams[i] != "") {
-                paramsAuditingFunc += "window.jSniff.spies." + sniffName + ".invocations[window.jSniff.spies." + sniffName + ".invocations.length - 1].params." + funcParams[i] + " = JSON.parse(JSON.stringify(" + funcParams[i] + "));";
+            if (funcParams[i] != '') {
+                paramsAuditingFunc += 'window.jSniff.spies.' + sniffName + '.invocations[window.jSniff.spies.' + sniffName + '.invocations.length - 1].params.' + funcParams[i] + ' = JSON.parse(JSON.stringify(' + funcParams[i] + '));';
             }
         }
 
         for (var j = 0; funcParams.length > j; j++) {
-            evalParams.push("'" + funcParams[j].replace(/\s/gm, '') + "'");
+            evalParams.push('\'' + funcParams[j].replace(/\s/gm, '') + '\'');
         }
+		
+		if(customFunc){
+			var uniqueId = new Date().getTime();
+			window.jSniff.spies[sniffName][uniqueId] = customFunc;
+		}
 
-        var text = "window.jSniff.spies." + sniffName + ".invocations.push({ executionDate: new Date(), params: {} });";
+        var text = 'window.jSniff.spies.' + sniffName + '.invocations.push({ executionDate: new Date(), params: {} });';
 
-        text += paramsAuditingFunc.replace(/\s/gm, '').replace(/'/gm, "\\'");
+        text += paramsAuditingFunc.replace(/\s/gm, '').replace(/'/gm, '\\\'');
 
-        text += customFunc ? 'window[' + uniqueId + ']();' : "";
+        text += customFunc ? 'window.jSniff.spies[\\\'' + sniffName + '\\\'][' + uniqueId + ']();' : '';
 
-        text += "window.jSniff.spies." + sniffName + ".toExecute(" + evalParams.join(",").replace(/'/g, "") + ")";
+        text += 'window.jSniff.spies.' + sniffName + '.toExecute(' + evalParams.join(',').replace(/'/g, '') + ')';
 
-        var toEval = "new Function(" + evalParams.join(",") + ",'" + text + "')";
+        var toEval = 'new Function(' + evalParams.join(',') + ',\'' + text + '\')';
 
         obj[funcName] = eval(toEval);
     };
@@ -95,4 +95,4 @@
 
     window.jSniff = jSniff;
 
-})(window, undefined);
+})(window);
