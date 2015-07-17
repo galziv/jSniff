@@ -47,6 +47,7 @@ This method returns an array of invocations sniffed data. Invocation sniffed dat
  - executionDate: Javascript Date object with the execution date.
  - params: Array of the execution parameters. Each element in array is an array for itself with two elements. First element is the name of the parameter and the second is its value
 
+<br />
 #####jSniff.getLastInvocation
 ----
 ```js
@@ -56,7 +57,7 @@ This method returns the last execution sniffed data. the returned object has two
  - executionDate: Javascript Date object with the execution date.
  - params: Array of the execution parameters. Each element in array is an array for itself with two elements. First element is the name of the parameter and the second is its value
 
-
+<br />
 #####jSniff.getInvocations
 ----
 ```js
