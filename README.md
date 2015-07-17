@@ -6,7 +6,7 @@ In addition, a custom function can be injected to the sniffed function to execut
 <br/>
 *important: a sniffed function can still be debugged in devTools and its execution will work as if it was not sniffed.
 <br/>
-#####Check jSniff .NET port to be used with Selenium WebDriver [jSniff.NET]
+#####Check jSniff's .NET port to be used with Selenium WebDriver - [jSniff.NET]
 [jSniff.Net]:https://github.com/galziv/jSniff.NET
 ## How to use
 <br />
