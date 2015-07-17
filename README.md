@@ -12,8 +12,9 @@ add script tag to your website:
 <script type="text/javascript" src="jSniff.js"></script>
 ```
 
-#####sniff the function using:
 
+
+#####sniff the function using:
 #####jSniff.sniffify
 ----
 ```js
@@ -36,6 +37,8 @@ so to sniff it we execute:
 ```js
 jSniff.sniffify(window, 'multiply', 'window_multiply', function() { console.log('hello jSniff');} );
 ```
+
+
 #####retrieve sniffed data using:
 #####jSniff.getInvocations
 ----
