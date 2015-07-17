@@ -5,15 +5,13 @@ When function is sniffed its execution date and parameters are logged by jSniff.
 In addition, a custom function can be injected to the sniffed function to execute before the original code.
 
 ## How to use
-
+<br />
 add script tag to your website:
 ---
 ```html
 <script type="text/javascript" src="jSniff.js"></script>
 ```
 <br />
-<br />
-
 #####sniff the function using:
 #####jSniff.sniffify
 ----
@@ -38,7 +36,7 @@ so to sniff it we execute:
 jSniff.sniffify(window, 'multiply', 'window_multiply', function() { console.log('hello jSniff');} );
 ```
 
-
+<br />
 #####retrieve sniffed data using:
 #####jSniff.getInvocations
 ----
