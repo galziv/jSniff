@@ -3,6 +3,7 @@
 jSniff is a javascript libary which helps you to sniff functions.
 When function is sniffed its execution date and parameters are logged by jSniff.
 In addition, a custom function can be injected to the sniffed function to execute before the original code.
+<br/>
 *important: a sniffed function can still be debugged in devTools and its execution will work as if it was not sniffed.
 ## How to use
 <br />
