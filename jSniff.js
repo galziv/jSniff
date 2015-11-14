@@ -46,7 +46,7 @@
 			window.jSniff.spies[sniffName][uniqueId] = customFunc;
 		}
 
-        var text = 'window.jSniff.spies.' + sniffName + '.invocations.push({ executionDate: new Date(), params: {} });';
+        var text = 'window.jSniff.spies.' + sniffName + '.invocations.push({ executionDate: Date.now(), params: {} });';
 
         text += paramsAuditingFunc.replace(/\s/gm, '').replace(/'/gm, '\\\'');
 
