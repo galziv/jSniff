@@ -20,7 +20,7 @@
 				
 				var params = jSniff.getLastInvocationParams('window_multiply');
 				document.getElementById("aValue").innerHTML = params['a'];
-				document.getElementById("bValue").innerHTML = params['b'];
+				document.getElementById("bValue").innerHTML = 'val: ' + params['b'].val + ', name: ' + params['b'].name;
             }
 		</script>
 	</head>

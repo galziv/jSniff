@@ -52,9 +52,11 @@
 
         text += customFunc ? 'window.jSniff.spies[\\\'' + sniffName + '\\\'][' + uniqueId + ']();' : '';
 
-        text += 'window.jSniff.spies.' + sniffName + '.toExecute(' + evalParams.join(',').replace(/'/g, '') + ')';
-
-        var toEval = 'new Function(' + evalParams.join(',') + ',\'' + text + '\')';
+        text += 'window.jSniff.spies.' + sniffName + '.toExecute(' + evalParams.join(',').replace(/'/g, '') + ');';
+		
+		var durationSnippet = 'window.jSniff.spies.' + sniffName + '.invocations[window.jSniff.spies.' + sniffName + '.invocations.length - 1].duration = Date.now() - window.jSniff.spies.' + sniffName + '.invocations[window.jSniff.spies.' + sniffName + '.invocations.length - 1].executionDate;'
+		
+        var toEval = 'new Function(' + evalParams.join(',') + ',\'' + text + durationSnippet + '\')';
 
         obj[funcName] = eval(toEval);
     };
