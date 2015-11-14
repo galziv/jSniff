@@ -46,7 +46,7 @@
 			window.jSniff.spies[sniffName][uniqueId] = customFunc;
 		}
 
-        var text = 'window.jSniff.spies.' + sniffName + '.invocations.push({ executionDate: Date.now(), params: {} });';
+        var text = 'var jsniffExecutionStart = Date.now();window.jSniff.spies.' + sniffName + '.invocations.push({ executionDate: jsniffExecutionStart, params: {} });';
 
         text += paramsAuditingFunc.replace(/\s/gm, '').replace(/'/gm, '\\\'');
 
@@ -54,7 +54,7 @@
 
         text += 'window.jSniff.spies.' + sniffName + '.toExecute(' + evalParams.join(',').replace(/'/g, '') + ');';
 		
-		var durationSnippet = 'window.jSniff.spies.' + sniffName + '.invocations[window.jSniff.spies.' + sniffName + '.invocations.length - 1].duration = Date.now() - window.jSniff.spies.' + sniffName + '.invocations[window.jSniff.spies.' + sniffName + '.invocations.length - 1].executionDate;'
+		var durationSnippet = 'window.jSniff.spies.' + sniffName + '.invocations[window.jSniff.spies.' + sniffName + '.invocations.length - 1].duration = Date.now() - jsniffExecutionStart;'
 		
         var toEval = 'new Function(' + evalParams.join(',') + ',\'' + text + durationSnippet + '\')';
 
