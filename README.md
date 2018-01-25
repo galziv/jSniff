@@ -6,9 +6,13 @@ In addition, a custom function can be injected to the sniffed function to execut
 <br/>
 *important: a sniffed function can still be debugged in devTools and its execution will work as if it was not sniffed.
 <br/>
+
 #####Check jSniff's .NET port to be used with Selenium WebDriver - [jSniff.NET]
+
 [jSniff.Net]:https://github.com/galziv/jSniff.NET
+
 ## How to use
+
 <br />
 add script tag to your website:
 ---
@@ -16,8 +20,11 @@ add script tag to your website:
 <script type="text/javascript" src="jSniff.js"></script>
 ```
 <br />
+
 #####sniff the function using:
+
 #####jSniff.sniffify
+
 ----
 ```js
 function (obj, funcName, sniffName, customFunc)
@@ -41,8 +48,11 @@ jSniff.sniffify(window, 'multiply', 'window_multiply', function() { console.log(
 ```
 
 <br />
+
 #####retrieve sniffed data using:
+
 #####jSniff.getInvocations
+
 ----
 ```js
 function getInvocations (sniffName)
@@ -52,7 +62,9 @@ This method returns an array of invocations sniffed data. Invocation sniffed dat
  - params: Array of the execution parameters. Each element in array is an array for itself with two elements. First element is the name of the parameter and the second is its value
 
 <br />
+
 #####jSniff.getLastInvocation
+
 ----
 ```js
 function getLastInvocation (sniffName)
@@ -62,7 +74,9 @@ This method returns the last execution sniffed data. the returned object has two
  - params: Array of the execution parameters. Each element in array is an array for itself with two elements. First element is the name of the parameter and the second is its value
 
 <br />
+
 #####jSniff.getInvocations
+
 ----
 ```js
 function getLastInvocationParams (sniffName)
