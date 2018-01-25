@@ -7,7 +7,7 @@ In addition, a custom function can be injected to the sniffed function to execut
 *important: a sniffed function can still be debugged in devTools and its execution will work as if it was not sniffed.
 <br/>
 
-#####Check jSniff's .NET port to be used with Selenium WebDriver - [jSniff.NET]
+##### Check jSniff's .NET port to be used with Selenium WebDriver - [jSniff.NET]
 
 [jSniff.Net]:https://github.com/galziv/jSniff.NET
 
@@ -21,9 +21,9 @@ add script tag to your website:
 ```
 <br />
 
-#####sniff the function using:
+##### sniff the function using:
 
-#####jSniff.sniffify
+##### jSniff.sniffify
 
 ----
 ```js
@@ -49,9 +49,9 @@ jSniff.sniffify(window, 'multiply', 'window_multiply', function() { console.log(
 
 <br />
 
-#####retrieve sniffed data using:
+##### retrieve sniffed data using:
 
-#####jSniff.getInvocations
+##### jSniff.getInvocations
 
 ----
 ```js
@@ -63,7 +63,7 @@ This method returns an array of invocations sniffed data. Invocation sniffed dat
 
 <br />
 
-#####jSniff.getLastInvocation
+##### jSniff.getLastInvocation
 
 ----
 ```js
@@ -75,7 +75,7 @@ This method returns the last execution sniffed data. the returned object has two
 
 <br />
 
-#####jSniff.getInvocations
+##### jSniff.getInvocations
 
 ----
 ```js
